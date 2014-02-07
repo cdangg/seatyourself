@@ -1,0 +1,6 @@
+<h1>Restaurants</h1>
+<p><% @restaurants.each do |restaurant| %>
+			<%= link_to restaurant[:name], "/restaurants/#{restaurant.id}" %><br />
+			<%= restaurant[:category] %></p>
+		<% end %>
+
