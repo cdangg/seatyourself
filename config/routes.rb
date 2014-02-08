@@ -2,6 +2,7 @@ Seatyourself::Application.routes.draw do
 
   resources :restaurants do
     resources :reservations
+  end
   resources :customers
   resources :sessions, :only => [:new, :create, :destroy]
 

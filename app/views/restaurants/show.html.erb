@@ -1,5 +1,27 @@
 <%= @restaurant[:name] %>
 <%= link_to "Edit Restaurant", edit_restaurant_path%>
+<% if current_customer %>
+<div class="reservation">
+		<h3>Reservations</h3>
+		<%= form_for([@restaurant, @reservation]) do |f| %>
+			<div class="field">
+				<%= f.label :day %><br />
+				<%= f.date_field :day %>
+			</div>
+			<div class="field">
+				<%= f.label :time %><br />
+				<%= f.time_field :time %>
+			</div>
+			<div class="field">
+				<%= f.label :num_of_customers %><br />
+				<%= f.number_field :num_of_customers %>
+			</div>
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		<% end %>
+<% end %>
+
 <div>
 	<section>
 		<%= @restaurant[:address] %><br />
@@ -7,3 +29,4 @@
 		<%= @restaurant[:summary] %><br />
 	</section>
 </div>
+
