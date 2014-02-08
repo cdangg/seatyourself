@@ -1,2 +1,7 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h1>Here are your current reservations:></h1>
+<% if current_customer %>
+	<% @restaurant.reservations.each do |reservation| %>
+		<%= reservation.day %>, <%= reservation.time %>, <%= reservation.num_of_customers %>
+	<% end %>
+<% end %>
+

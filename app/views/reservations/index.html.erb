@@ -1,0 +1,5 @@
+ <h1>Reservations for <%= @restaurant.name %></h1>
+	<% @restaurant.reservations.each do |reservation| %>
+		Reservation: <%= reservation.day %><br />
+		Number of Guests: <%= reservation.num_of_customers %><br />
+	<% end %>

@@ -5,15 +5,12 @@
 		<h3>Reservations</h3>
 		<%= form_for([@restaurant, @reservation]) do |f| %>
 			<div class="field">
-				<%= f.label :day %><br />
-				<%= f.date_field :day %>
+				<%= f.label "When?" %><br />
+				<%= f.datetime_select :day, order: [:month, :day] %>
 			</div>
+
 			<div class="field">
-				<%= f.label :time %><br />
-				<%= f.time_field :time %>
-			</div>
-			<div class="field">
-				<%= f.label :num_of_customers %><br />
+				<%= f.label "Number of Guests" %><br />
 				<%= f.number_field :num_of_customers %>
 			</div>
 			<div class="actions">
