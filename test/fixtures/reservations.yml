@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2014-02-07 19:30:22
+  num_of_customers: 1
+  day: 2014-02-07 19:30:22
+  restaurant_id: MyString
+  customer_id: MyString
+
+two:
+  time: 2014-02-07 19:30:22
+  num_of_customers: 1
+  day: 2014-02-07 19:30:22
+  restaurant_id: MyString
+  customer_id: MyString

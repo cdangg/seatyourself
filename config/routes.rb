@@ -1,8 +1,9 @@
 Seatyourself::Application.routes.draw do
-  get "customers/new"
-  get "customers/create"
-  resources :restaurants
+
+  resources :restaurants do
+    resources :reservations
   resources :customers
+  resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => 'restaurants#index'
   # The priority is based upon order of creation: first created -> highest priority.
