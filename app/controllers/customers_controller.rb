@@ -12,6 +12,14 @@ class CustomersController < ApplicationController
   	end
   end
 
+  def show
+  	# if current_customer
+  	# 	@reservation = @customer.reservations.build
+  	# end
+
+    @reservations = current_customer.reservations.all
+  end
+
   def customer_params
   	params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :telephone)
   end

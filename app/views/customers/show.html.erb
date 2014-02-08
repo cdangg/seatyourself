@@ -1,0 +1,6 @@
+<h1>Here are your current reservations:</h1>
+<% if current_customer %>
+	<% @customer.reservations.each do |reservation| %>
+		<%= reservation.day %>, <%= reservation.num_of_customers %>
+	<% end %>
+<% end %>

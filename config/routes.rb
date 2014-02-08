@@ -3,7 +3,13 @@ Seatyourself::Application.routes.draw do
   resources :restaurants do
     resources :reservations
   end
-  resources :customers
+
+
+  resources :customers do
+    resources :reservations
+
+  end
+
   resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => 'restaurants#index'

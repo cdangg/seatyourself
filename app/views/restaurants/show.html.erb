@@ -1,5 +1,5 @@
-<%= @restaurant[:name] %>
-<%= link_to "Edit Restaurant", edit_restaurant_path%>
+<h1><%= @restaurant[:name] %></h1>
+<%= link_to "Back to Restaurants", restaurants_url %> | <%= link_to "Edit Restaurant", edit_restaurant_path%>
 <% if current_customer %>
 <div class="reservation">
 		<h3>Reservations</h3>

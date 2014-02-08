@@ -1,7 +1,21 @@
 class ReservationsController < ApplicationController
-	before_filter :load_restaurant
+
+	before_filter :load_restaurant, except: [:index]
+	before_filter :load_customer, except: [:index]
+
+  def index
+    if params[:customer_id]
+      @object = Customer.find(params[:customer_id])
+    elsif params[:restaurant_id]
+      @object = Restaurant.find(params[:restaurant_id])
+    end
+    @reservations = @object.reservations.all
+  end
+
   def show
   	@reservation = Reservation.find(params[:id])
+  	# @reservation = @customer.reservations.build(reservation_params)
+  	# @reservation.customer_id = current_customer.id
   end
 
   def create
@@ -31,6 +45,9 @@ class ReservationsController < ApplicationController
 
   def load_restaurant
   	@restaurant = Restaurant.find(params[:restaurant_id])
+  end
 
+  def load_customer
+  	@customer = Customer.find(params[:customer_id])
   end
 end
