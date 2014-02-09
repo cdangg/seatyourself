@@ -2,9 +2,10 @@
 <h1>Welcome, <%= @current_customer[:first_name] %>!</h1>
 <h2>Below are your reservations:</h2>
 
-<p><% @current_customer.reservations.each do |r| %>
-	Restaurant: <%= r.restaurant.name %><br />
-	Reservation time: <%= r.day %><br />
-	Number of Guests: <%= r.num_of_customers %><br />
-	<% end %></p>
+<section><% @current_customer.reservations.each do |r| %>
+	<strong>Restaurant:</strong> <%= r.restaurant.name %><br />
+	<strong>Reservation time:</strong> <%= r.day %><br />
+	<strong>Number of Guests:</strong> <%= r.num_of_customers %><br>
+	<br>
+	<% end %></section>
 

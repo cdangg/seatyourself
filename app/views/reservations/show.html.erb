@@ -1,7 +1,1 @@
-<h1>Here are your current reservations:></h1>
-<% if current_customer %>
-	<% @restaurant.reservations.each do |reservation| %>
-		<%= reservation.day %>, <%= reservation.time %>, <%= reservation.num_of_customers %>
-	<% end %>
-<% end %>
-
+<h2>Here are your current reservations</h2>
