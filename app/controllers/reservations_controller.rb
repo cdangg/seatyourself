@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
 	before_filter :load_restaurant, except: [:index]
-	before_filter :load_customer, except: [:index]
+	before_filter :load_customer, except: [:index, :create]
 
   def index
     if params[:customer_id]

@@ -13,13 +13,14 @@ class CustomersController < ApplicationController
   end
 
   def show
-  	# if current_customer
-  	# 	@reservation = @customer.reservations.build
-  	# end
-
+    @customer = Customer.find(params[:id])
+    @restaurants = current_customer.restaurants.all
     @reservations = current_customer.reservations.all
   end
 
+  def index
+    @reservations = current_customer.reservations.all
+  end
   def customer_params
   	params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :telephone)
   end
