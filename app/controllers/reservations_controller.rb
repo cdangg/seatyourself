@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
-	before_filter :load_restaurant, except: [:index]
-	before_filter :load_customer, except: [:index, :create]
+	before_filter :load_restaurant, except: [:index, :edit]
+	# before_filter :load_customer, except: [:index, :create]
 
   def index
     if params[:customer_id]
@@ -31,6 +31,7 @@ class ReservationsController < ApplicationController
 
   def edit
   	@reservation = Reservation.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def destroy
@@ -47,7 +48,7 @@ class ReservationsController < ApplicationController
   	@restaurant = Restaurant.find(params[:restaurant_id])
   end
 
-  def load_customer
-  	@customer = Customer.find(params[:customer_id])
-  end
+  # def load_customer
+  # 	@customer = Customer.find(params[:customer_id])
+  # end
 end

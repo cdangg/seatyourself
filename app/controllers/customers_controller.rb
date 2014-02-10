@@ -3,6 +3,10 @@ class CustomersController < ApplicationController
   	@customer = Customer.new
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
   def create
   	@customer = Customer.new(customer_params)
   	if @customer.save
@@ -16,6 +20,8 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @restaurants = current_customer.restaurants.all
     @reservations = current_customer.reservations.all
+    @reservation = current_customer.reservations.find(params[:id])
+    @restaurant = current_customer.restaurants.find(params[:id])
   end
 
   def index

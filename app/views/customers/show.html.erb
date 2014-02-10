@@ -3,6 +3,7 @@
 <h2>Below are your reservations:</h2>
 
 <section><% @current_customer.reservations.each do |r| %>
+	<%= link_to "Edit Reservation", edit_restaurant_reservation_path(r.restaurant.id, r.id) %>
 	<strong>Restaurant:</strong> <%= r.restaurant.name %><br />
 	<strong>Reservation time:</strong> <%= r.day %><br />
 	<strong>Number of Guests:</strong> <%= r.num_of_customers %><br>

@@ -1,2 +1,19 @@
-<h1>Reservations#edit</h1>
-<p>Find me in app/views/reservations/edit.html.erb</p>
+<h1>Edit Your Reservation</h1>
+<% if current_customer %>
+<div class="reservation">
+		<h3>Reservations</h3>
+		<%= form_for([@restaurant, @reservation]) do |f| %>
+			<div class="field">
+				<%= f.label "When?" %><br />
+				<%= f.datetime_select :day, order: [:month, :day] %>
+			</div>
+
+			<div class="field">
+				<%= f.label "Number of Guests" %><br />
+				<%= f.number_field :num_of_customers %>
+			</div>
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		<% end %>
+<% end %>
