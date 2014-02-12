@@ -20,13 +20,16 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @restaurants = current_customer.restaurants.all
     @reservations = current_customer.reservations.all
-    @reservation = current_customer.reservations.find(params[:id])
-    @restaurant = current_customer.restaurants.find(params[:id])
+    # @reservation = current_customer.reservations.find(params[:id])
+    # @restaurant = current_customer.restaurants.find(params[:id])
   end
 
   def index
     @reservations = current_customer.reservations.all
   end
+
+  private
+
   def customer_params
   	params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation, :telephone)
   end

@@ -1,12 +1,12 @@
 <h1><%= @restaurant[:name] %></h1>
-<%= link_to "Back to Restaurants", restaurants_url %> | <%= link_to "Edit Restaurant", edit_restaurant_path%>
+<%= link_to "Back to Restaurants", restaurants_url %> | <%= link_to "Edit Restaurant", edit_restaurant_path %>
 <% if current_customer %>
 <div class="reservation">
 		<h3>Reservations</h3>
 		<%= form_for([@restaurant, @reservation]) do |f| %>
 			<div class="field">
-				<%= f.label "When?" %><br />
-				<%= f.datetime_select :day, order: [:month, :day] %>
+				<%= f.label :day, "When?" %><br />
+				<%= f.select :day, @restaurant.time_slots.map{ |dt| [nice_datetime(dt), dt] } %>
 			</div>
 
 			<div class="field">
@@ -21,6 +21,7 @@
 <br/>
 <div>
 	<section>
+		<%= image_tag @restaurant[:image] %><br />
 		<strong>Address:</strong> <%= @restaurant[:address] %><br />
 		<strong>Category:</strong> <%= @restaurant[:category] %><br />
 		<strong>Summary:</strong> <%= @restaurant[:summary] %><br />

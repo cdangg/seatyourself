@@ -4,8 +4,8 @@ class CreateReservations < ActiveRecord::Migration
       t.datetime :time
       t.integer :num_of_customers
       t.datetime :day
-      t.string :restaurant_id
-      t.string :customer_id
+      t.integer :restaurant_id
+      t.integer :customer_id
 
       t.timestamps
     end
