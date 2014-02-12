@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
 	has_many :reservations
 	has_many :customers, :through => :reservations
 	validates :name, :presence => true
-	belongs_to :categories
+	belongs_to :category
 
 	def opening_hour
 		07
